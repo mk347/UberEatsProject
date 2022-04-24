@@ -15,7 +15,6 @@ const BasketScreen = () => {
       <Text style={styles.name}>{restaurant.name}</Text>
       <Text style={styles.yourItemsLabel}>Your Items</Text>
 
-
       <View>
         <FlatList
           data={restaurant.dishes}
@@ -88,7 +87,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     paddingHorizontal: 10,
     marginTop: 'auto',
-    marginBottom: 30
+    marginBottom: 10
   },
   button: {
     backgroundColor: 'black',

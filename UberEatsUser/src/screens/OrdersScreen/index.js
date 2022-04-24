@@ -23,7 +23,6 @@ const OrdersScreen = () => {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    marginTop: 50,
     width: '100%',
     padding: 10
   },
