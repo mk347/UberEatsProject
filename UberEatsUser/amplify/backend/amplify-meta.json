@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ubereats-dev-150459-authRole",
+      "UnauthRoleArn": "arn:aws:iam::358947213897:role/amplify-ubereats-dev-150459-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::358947213897:role/amplify-ubereats-dev-150459-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-ubereats-dev-150459-deployment",
+      "UnauthRoleName": "amplify-ubereats-dev-150459-unauthRole",
+      "StackName": "amplify-ubereats-dev-150459",
+      "StackId": "arn:aws:cloudformation:us-east-1:358947213897:stack/amplify-ubereats-dev-150459/71e5cde0-c401-11ec-b6e3-0a0c7dffbd99",
+      "AmplifyAppId": "dd0fasljzrq1j"
+    }
+  },
+  "auth": {
+    "UberEats": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 6,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereats-dev-150459-deployment/amplify-cfn-templates/auth/UberEats-cloudformation-template.json",
+        "logicalId": "authUberEats"
+      },
+      "lastPushTimeStamp": "2022-04-24T19:23:45.045Z",
+      "output": {
+        "UserPoolId": "us-east-1_E6pYeWecU",
+        "AppClientIDWeb": "5425buf252l1nmtpp9ljffnl7a",
+        "AppClientID": "4n032gv87bfokm58l9nmtgos8o",
+        "IdentityPoolId": "us-east-1:67d0152b-c797-4232-b3cb-9c8b6eef4c61",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:358947213897:userpool/us-east-1_E6pYeWecU",
+        "IdentityPoolName": "testAuthIdentityPool__dev",
+        "UserPoolName": "UberEats"
+      },
+      "lastPushDirHash": "cEn0JCXhX79T61ArdM8xw7VlyL0="
+    }
+  }
+}
