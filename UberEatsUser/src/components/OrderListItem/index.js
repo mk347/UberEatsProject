@@ -7,7 +7,7 @@ const OrderListItem = ({ orderItem }) => {
   return(
 
     <Pressable 
-      onPress={() => navigation.navigate("Order", {id: orderItem.id })} 
+      onPress={() => navigation.navigate("OrderDetails", {id: orderItem.id })} 
     >
       <View style={styles.row}>
         <Image

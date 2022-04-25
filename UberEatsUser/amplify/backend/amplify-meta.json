@@ -40,7 +40,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereats-dev-150459-deployment/amplify-cfn-templates/auth/UberEats-cloudformation-template.json",
         "logicalId": "authUberEats"
       },
-      "lastPushTimeStamp": "2022-04-24T19:23:45.045Z",
+      "lastPushTimeStamp": "2022-04-25T20:29:38.541Z",
       "output": {
         "UserPoolId": "us-east-1_E6pYeWecU",
         "AppClientIDWeb": "5425buf252l1nmtpp9ljffnl7a",
