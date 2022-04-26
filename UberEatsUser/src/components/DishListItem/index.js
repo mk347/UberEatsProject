@@ -10,7 +10,7 @@ const DishListItem = ({ dish }) => {
       <View style={{flex: 1}}>
         <Text style={styles.name}>{dish.name}</Text>
         <Text style={styles.description} numberOfLines={2}>{dish.description}</Text>
-        <Text style={styles.price}>${dish.price}</Text>
+        <Text style={styles.price}>${dish.price.toFixed(2)}</Text>
       </View>
         {dish.image && (<Image 
           source={{uri: dish.image}} style={styles.image} 
