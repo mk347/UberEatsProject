@@ -8,6 +8,7 @@ export default function HomeScreen() {
 
   const [restaurants, setRestaurants] = useState([]);
 
+  // Fetch Restaurants from DB
 
   // Method 1
   // const fetchRestaurants = async () => {

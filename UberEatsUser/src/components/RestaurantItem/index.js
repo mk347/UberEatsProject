@@ -16,7 +16,7 @@ const RestaurantItem = ({ restaurant }) => {
 
       <Image 
         source={{
-          uri: restaurant.image.startsWith('http') ? restaurant.image : DEFAULT_IMAGE,
+          uri: restaurant.image.startsWith('http') ? restaurant.image : DEFAULT_IMAGE
         }} 
         style={styles.image} 
       />

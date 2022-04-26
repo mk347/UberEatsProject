@@ -1,19 +1,33 @@
 import { View, Text, Image, FlatList, StyleSheet } from 'react-native'
 import {Ionicons} from '@expo/vector-icons'
 import DishListItem from '../../components/DishListItem'
-import restaurants from '../../../assets/data/restaurants.json'
 import Header from './Header';
 import styles from './styles';
 import { useRoute, useNavigation } from '@react-navigation/native';
-
-const restaurant = restaurants[0];
+import { useState, useEffect } from 'react';
+import { ActivityIndicator } from 'react-native-paper';
+import { DataStore } from 'aws-amplify';
+import { Restaurant } from '../../models'
 
 const RestaurantDetailsPage = () => {
+
+  const [restaurant, setRestaurant] = useState(null);
 
   const route = useRoute();
   const navigation = useNavigation();
 
   const id = route.params.id;
+
+  useEffect(() => {
+    // Fetch restaurant with the id
+    DataStore.query(Restaurant, id).then(setRestaurant);
+  }, [])
+
+  if (!restaurant) {
+    return <ActivityIndicator size={"large"} style={{flex: 1}} />;
+  }
+
+  console.log(restaurant);
 
   return (
     <View style={styles.page}>
