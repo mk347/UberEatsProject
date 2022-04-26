@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+const DEFAULT_IMAGE = 'https://dummyimage.com/600x400/000/fff.jpg&text=Image+Coming+Soon';
+
 const RestaurantItem = ({ restaurant }) => {
 
   const navigation = useNavigation();
@@ -14,7 +16,7 @@ const RestaurantItem = ({ restaurant }) => {
 
       <Image 
         source={{
-          uri: restaurant.image,
+          uri: restaurant.image.startsWith('http') ? restaurant.image : DEFAULT_IMAGE,
         }} 
         style={styles.image} 
       />
@@ -23,11 +25,11 @@ const RestaurantItem = ({ restaurant }) => {
         <View>
           <Text style={styles.title}>{restaurant.name}</Text>
           <Text style={styles.subtitle}>
-            ${restaurant.deliveryFee} &bull; {restaurant.minDeliveryTime}-{restaurant.maxDeliveryTime} minutes
+            ${restaurant.deliveryFee.toFixed(2)} &bull; {restaurant.minDeliveryTime}-{restaurant.maxDeliveryTime} minutes
           </Text>
         </View>
         <View style={styles.rating}>
-          <Text>{restaurant.rating}</Text>
+          <Text>{Math.floor(restaurant.rating)}</Text>
         </View>
       </View>
 

@@ -36,11 +36,6 @@
           "EMAIL"
         ]
       },
-      "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereats-dev-150459-deployment/amplify-cfn-templates/auth/UberEats-cloudformation-template.json",
-        "logicalId": "authUberEats"
-      },
-      "lastPushTimeStamp": "2022-04-25T20:29:38.541Z",
       "output": {
         "UserPoolId": "us-east-1_E6pYeWecU",
         "AppClientIDWeb": "5425buf252l1nmtpp9ljffnl7a",
@@ -50,7 +45,43 @@
         "IdentityPoolName": "testAuthIdentityPool__dev",
         "UserPoolName": "UberEats"
       },
-      "lastPushDirHash": "cEn0JCXhX79T61ArdM8xw7VlyL0="
+      "lastPushTimeStamp": "2022-04-25T22:51:27.371Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereats-dev-150459-deployment/amplify-cfn-templates/auth/UberEats-cloudformation-template.json",
+        "logicalId": "authUberEats"
+      }
+    }
+  },
+  "api": {
+    "UberEats": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "rlagcnyapjg6ncewonzrndvdsy",
+        "GraphQLAPIEndpointOutput": "https://gctwiwhej5bijphr2bli3fwjku.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-payb7fee5vb65frzg4didl4rte"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereats-dev-150459-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiUberEats"
+      },
+      "lastPushTimeStamp": "2022-04-25T22:51:27.372Z",
+      "lastPushDirHash": "AXyCz5a74lt1W5Q4zlGxb2y8oSg="
     }
   }
 }
