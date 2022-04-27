@@ -10,13 +10,11 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "status": {
-                    "name": "status",
+                "userID": {
+                    "name": "userID",
                     "isArray": false,
-                    "type": {
-                        "enum": "OrderStatus"
-                    },
-                    "isRequired": false,
+                    "type": "ID",
+                    "isRequired": true,
                     "attributes": []
                 },
                 "OrderDishes": {
@@ -47,10 +45,19 @@ export const schema = {
                         "targetName": "orderRestaurantId"
                     }
                 },
-                "userID": {
-                    "name": "userID",
+                "total": {
+                    "name": "total",
                     "isArray": false,
-                    "type": "ID",
+                    "type": "Float",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": {
+                        "enum": "OrderStatus"
+                    },
                     "isRequired": true,
                     "attributes": []
                 },
@@ -325,7 +332,7 @@ export const schema = {
                     "name": "image",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "deliveryFee": {
@@ -363,13 +370,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "lat": {
-                    "name": "lat",
-                    "isArray": false,
-                    "type": "Float",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "lng": {
                     "name": "lng",
                     "isArray": false,
@@ -404,6 +404,13 @@ export const schema = {
                         "connectionType": "HAS_MANY",
                         "associatedWith": "restaurantID"
                     }
+                },
+                "lat": {
+                    "name": "lat",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": true,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -770,5 +777,5 @@ export const schema = {
         }
     },
     "nonModels": {},
-    "version": "bb4f7da8970a1878e310dcc23a0d578a"
+    "version": "6225a2c697c8242260c9d02979ce70c0"
 };

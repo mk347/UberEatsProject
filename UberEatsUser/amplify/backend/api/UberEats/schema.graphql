@@ -8,10 +8,11 @@ enum OrderStatus {
 
 type Order @model @auth(rules: [{allow: public}]) {
   id: ID!
-  status: OrderStatus
+  userID: ID! @index(name: "byUser")
   OrderDishes: [OrderDish] @hasMany(indexName: "byOrder", fields: ["id"])
   Restaurant: Restaurant @hasOne
-  userID: ID! @index(name: "byUser")
+  total: Float!
+  status: OrderStatus!
 }
 
 type OrderDish @model @auth(rules: [{allow: public}]) {
@@ -58,15 +59,15 @@ type Basket @model @auth(rules: [{allow: public}]) {
 type Restaurant @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
-  image: String
+  image: String!
   deliveryFee: Float!
   minDeliveryTime: Int!
   maxDeliveryTime: Int!
   rating: Float
   address: String!
-  lat: Float!
   lng: Float!
   Dishes: [Dish] @hasMany(indexName: "byRestaurant", fields: ["id"])
   Baskets: [Basket] @hasMany(indexName: "byRestaurant", fields: ["id"])
+  lat: Float!
 }
  

@@ -40,10 +40,11 @@ type UserMetaData = {
 
 export declare class Order {
   readonly id: string;
-  readonly status?: OrderStatus | keyof typeof OrderStatus | null;
+  readonly userID: string;
   readonly OrderDishes?: (OrderDish | null)[] | null;
   readonly Restaurant?: Restaurant | null;
-  readonly userID: string;
+  readonly total: number;
+  readonly status: OrderStatus | keyof typeof OrderStatus;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly orderRestaurantId?: string | null;
@@ -79,16 +80,16 @@ export declare class Dish {
 export declare class Restaurant {
   readonly id: string;
   readonly name: string;
-  readonly image?: string | null;
+  readonly image: string;
   readonly deliveryFee: number;
   readonly minDeliveryTime: number;
   readonly maxDeliveryTime: number;
   readonly rating?: number | null;
   readonly address: string;
-  readonly lat: number;
   readonly lng: number;
   readonly Dishes?: (Dish | null)[] | null;
   readonly Baskets?: (Basket | null)[] | null;
+  readonly lat: number;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Restaurant, RestaurantMetaData>);
