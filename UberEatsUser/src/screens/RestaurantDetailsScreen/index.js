@@ -7,11 +7,12 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 import { useState, useEffect } from 'react';
 import { ActivityIndicator } from 'react-native-paper';
 import { DataStore } from 'aws-amplify';
-import { Restaurant } from '../../models'
+import { Restaurant, Dish } from '../../models'
 
 const RestaurantDetailsPage = () => {
 
   const [restaurant, setRestaurant] = useState(null);
+  const [dishes, setDishes] = useState([]);
 
   const route = useRoute();
   const navigation = useNavigation();
@@ -19,21 +20,24 @@ const RestaurantDetailsPage = () => {
   const id = route.params.id;
 
   useEffect(() => {
+    if (!id) {
+      return;
+    }
     // Fetch restaurant with the id
     DataStore.query(Restaurant, id).then(setRestaurant);
-  }, [])
+    // Fetch dishes
+    DataStore.query(Dish, (dish) => dish.restaurantID("eq", id)).then(setDishes)
+  }, [id])
 
   if (!restaurant) {
     return <ActivityIndicator size={"large"} style={{flex: 1}} />;
   }
 
-  console.log(restaurant);
-
   return (
     <View style={styles.page}>
       <FlatList
         ListHeaderComponent={() => <Header restaurant={restaurant} />}
-        data={restaurant.dishes} 
+        data={dishes} 
         renderItem={({ item }) => <DishListItem dish={item} /> }
         keyExtractor={(item, index) => index.toString()}
         showsVerticalScrollIndicator={false}
