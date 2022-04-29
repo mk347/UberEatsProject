@@ -27,10 +27,10 @@ type User @model @auth(rules: [{allow: public}]) {
   sub: String!
   name: String!
   address: String!
-  lat: Float!
+  lat: Float
   Baskets: [Basket] @hasMany(indexName: "byUser", fields: ["id"])
   Orders: [Order] @hasMany(indexName: "byUser", fields: ["id"])
-  lng: Float!
+  lng: Float
 }
 
 type BasketDish @model @auth(rules: [{allow: public}]) {

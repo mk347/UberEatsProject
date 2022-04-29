@@ -683,7 +683,7 @@ export const schema = {
                     "name": "lat",
                     "isArray": false,
                     "type": "Float",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "Baskets": {
@@ -718,7 +718,7 @@ export const schema = {
                     "name": "lng",
                     "isArray": false,
                     "type": "Float",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdAt": {
@@ -777,5 +777,5 @@ export const schema = {
         }
     },
     "nonModels": {},
-    "version": "6225a2c697c8242260c9d02979ce70c0"
+    "version": "ffa7a5948ac01d834773683a30289833"
 };

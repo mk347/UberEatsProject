@@ -45,7 +45,7 @@
         "IdentityPoolName": "testAuthIdentityPool__dev",
         "UserPoolName": "UberEats"
       },
-      "lastPushTimeStamp": "2022-04-27T16:21:15.056Z",
+      "lastPushTimeStamp": "2022-04-27T19:01:41.479Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereats-dev-150459-deployment/amplify-cfn-templates/auth/UberEats-cloudformation-template.json",
         "logicalId": "authUberEats"
@@ -76,12 +76,12 @@
         "GraphQLAPIEndpointOutput": "https://gctwiwhej5bijphr2bli3fwjku.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-payb7fee5vb65frzg4didl4rte"
       },
-      "lastPushTimeStamp": "2022-04-27T16:21:15.120Z",
+      "lastPushTimeStamp": "2022-04-27T19:01:41.537Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereats-dev-150459-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apiUberEats"
       },
-      "lastPushDirHash": "naRVoHtqwSFX1SlZmYNjezbIx1E="
+      "lastPushDirHash": "KuX9SvmyhRsFj7Tl6jijCNL5Ai0="
     }
   }
 }

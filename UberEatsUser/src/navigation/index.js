@@ -8,7 +8,7 @@ import OrdersScreen from '../screens/OrdersScreen';
 import OrderDetails from '../screens/OrderDetails';
 import Profile from '../screens/Profile';
 import { Foundation, FontAwesome5 } from '@expo/vector-icons';
-import { useAuthContext } from '../context/AuthContext';
+import { useAuthContext } from '../contexts/AuthContext';
 
 const Stack = createNativeStackNavigator();
 

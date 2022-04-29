@@ -5,7 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Amplify } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react-native';
 import config from './src/aws-exports';
-import AuthContextProvider from './src/context/AuthContext';
+import AuthContextProvider from './src/contexts/AuthContext';
+import BasketContextProvider from './src/contexts/BasketContext';
 
 Amplify.configure({
   ...config, 
@@ -14,14 +15,15 @@ Amplify.configure({
   },
 })
 
+// All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.
 function App() {
   return (
     <NavigationContainer>
-        
         <AuthContextProvider>
-          <RootNavigator />
+          <BasketContextProvider>
+            <RootNavigator />
+          </BasketContextProvider>
         </AuthContextProvider>
-
         <StatusBar style="light" />
     </NavigationContainer>
   );

@@ -124,10 +124,10 @@ export declare class User {
   readonly sub: string;
   readonly name: string;
   readonly address: string;
-  readonly lat: number;
+  readonly lat?: number | null;
   readonly Baskets?: (Basket | null)[] | null;
   readonly Orders?: (Order | null)[] | null;
-  readonly lng: number;
+  readonly lng?: number | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<User, UserMetaData>);

@@ -5,25 +5,32 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { DataStore } from 'aws-amplify';
 import { Dish } from '../../models'
 import { ActivityIndicator } from 'react-native-paper';
+import { useBasketContext } from '../../contexts/BasketContext';
 
 const DishDetailsScreen = () => {
+  const [dish, setDish] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const navigation = useNavigation();
-
   // Get id from route params
   const route = useRoute();
   const id = route.params.id;
 
-  const [dish, setDish] = useState(null);
+  const { addDishToBasket } = useBasketContext();
 
   useEffect(() => {
     if (id) {
+      console.log("AWS Request Set Dish Item");
       DataStore.query(Dish, id).then(setDish);  
     }
   }, [id]);
 
   if (!dish) {
     return <ActivityIndicator />
+  }
+
+  const onAddToBasket = async () => {
+    await addDishToBasket(dish, quantity);
+    navigation.goBack();
   }
 
   const onMinus = () => {
@@ -40,6 +47,7 @@ const DishDetailsScreen = () => {
     return (dish.price * quantity).toFixed(2)
   }
 
+
   return (
     <View style={styles.page}>
       <Text style={styles.name}>{dish.name}</Text>
@@ -52,7 +60,7 @@ const DishDetailsScreen = () => {
         <AntDesign name="pluscircleo" size={60} color={"black"} onPress={onPlus} />
       </View>
 
-      <Pressable onPress={() => navigation.navigate("BasketScreen")} style={styles.button}>
+      <Pressable onPress={onAddToBasket} style={styles.button}>
         <Text style={styles.buttonText}>Add {quantity} to basket &bull; ${getTotal()}</Text>
       </Pressable>
 

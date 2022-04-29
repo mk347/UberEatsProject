@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Auth, DataStore } from 'aws-amplify';
 import { User } from "../../models";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import { useNavigation } from "@react-navigation/native";
 
 const Profile = () => {
@@ -20,8 +20,10 @@ const Profile = () => {
 
   const onSave = async () => {
     if (dbUser) {
+      console.log("AWS Request Update App User");
       await updateUser();
     } else {
+      console.log("AWS Request Create App User");
       await createUser();
     }
     navigation.goBack();
@@ -29,6 +31,7 @@ const Profile = () => {
 
   const updateUser = async () => {
     // Save used for creating AND updating
+    console.log("AWS Request Update app user Inside Async");
     const user = await DataStore.save(
       User.copyOf(dbUser, (updated) => {
         updated.name = name;
@@ -37,11 +40,12 @@ const Profile = () => {
         updated.lng = parseFloat(lng);
       })
     );
-    setDbUser(user)
+    setDbUser(user);
   };
 
   const createUser = async () => {
     try {
+      console.log("AWS Request Update create user Inside Async");
       const user = await DataStore.save(
         new User({ 
           name, 
